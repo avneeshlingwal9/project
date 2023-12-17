@@ -85,7 +85,7 @@ class Student{
     public:
     string name ;
     int sem ; 
-    double cgpa ; 
+    double sgpa ; 
     map<string,int> subs;
     map<string,int> credits ;
     Student(){
@@ -104,7 +104,7 @@ class Student{
             credits[it->first] = crpt(temp);
             ++it ;   
          }
-        cgpa = cgpacalculator(subs,credits);
+        sgpa = cgpacalculator(subs,credits);
 
     }
     void displaysub(){
@@ -115,7 +115,7 @@ class Student{
             ++it;
             ++it1;
         }
-        cout << "Total SGPA is: " << cgpa  << endl ;
+        cout << "Total SGPA is: " << sgpa  << endl ;
         
     }
 
