@@ -31,6 +31,8 @@ int crpt(int marks){
 }
 map<string,int> getsub(int sem){
     map<string,int> cred ;
+    string s ;
+
     if(sem== 1){
         cred["Professional Communication"] = 2 ;
         cred["Engineering Chemistry"] = 3 ;
@@ -43,7 +45,7 @@ map<string,int> getsub(int sem){
         cred["Computer Lab-I"] = 2 ;
         cred["General Proficiency"] = 1 ;
     }
-    else {
+    else if(sem == 2) {
         cred["Advanced Professional Communication"] = 2 ;
         cred["Engineering Physics"] = 3 ;
         cred["Engineering Mathematics-II"] = 4 ;
@@ -57,9 +59,31 @@ map<string,int> getsub(int sem){
         cred["General Proficiency"] = 1 ;
 
     }
-    return cred ;
+    else if(sem == 3){
+        cred["Data Structures with C"]= 4 ;
+        cred["OOPS using C++"] = 3 ;
+        cred["Discrete Mathematics"]= 4;
+        cred["Logic Design and Computer Organization "] = 3 ;
+        cred["Career Skill"] = 2 ;
+        cred["OOPS with C++ Lab"] = 2 ;
+        cred["Data Structures Lab"] = 1 ;
+        cred["Logic Design and Computer Organization Lab"] = 1 ;
+        cout << "Enter your elective : " << endl ;
+        cin.ignore();
     
-}
+        getline(cin,s);
+        cred[s] = 3 ;
+        cin.ignore();
+
+
+    }
+    else{
+        throw sem;
+    }
+    return cred ;
+    }
+    
+
 double cgpacalculator(map<string,int> subs , map<string,int> credits){
     double totalcredits = 0 ; 
     double obtained = 0;
@@ -89,10 +113,14 @@ class Student{
     map<string,int> subs;
     map<string,int> credits ;
     Student(){
+        try{
+        
         cout << "Enter your name: " << endl ;
         getline(cin,name);
         cout << "Enter your sem: " << endl ;
         cin >> sem; 
+        if(sem <3){
+        
         subs = getsub(sem);
         it = subs.begin();
     
@@ -102,11 +130,19 @@ class Student{
             cout << "Enter your marks in " << it->first <<  endl;
             cin >> temp ;
             credits[it->first] = crpt(temp);
-            ++it ;   
-         }
-        sgpa = cgpacalculator(subs,credits);
+            ++it ; }  
+         
+        sgpa = cgpacalculator(subs,credits);}
+        else{
+            throw sem ;
+        }
+        
 
     }
+    catch( int sem) {
+        cout << "Invalid input" << endl; 
+        exit(0);
+    }}
     void displaysub(){
         it = subs.begin();
         it1 = credits.begin();
@@ -123,8 +159,12 @@ class Student{
 
 };
 int main(){
+    try{
     Student s ; 
-    s.displaysub();
+    s.displaysub();}
+    catch(int sem){
+        cout << "No data available"<< endl ;
+    }
     
 
 }
