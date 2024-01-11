@@ -127,10 +127,18 @@ class Student{
 
         while(it!= subs.end()){
             int temp ; 
+            try{
             cout << "Enter your marks in " << it->first <<  endl;
             cin >> temp ;
+            if( temp > 100) {
+                throw temp ;
+            }
             credits[it->first] = crpt(temp);
             ++it ; }  
+            catch (int temp){
+                cout << "Please enter valid marks again. " << endl; 
+            }
+        }
          
         sgpa = cgpacalculator(subs,credits);}
         else{
@@ -150,7 +158,8 @@ class Student{
             cout << "Credits in " << it->first << " are " << it1->second << endl ;
             ++it;
             ++it1;
-        }
+        }}
+    void displaysgpa(){
         cout << "Total SGPA is: " << sgpa  << endl ;
         
     }
@@ -161,7 +170,8 @@ class Student{
 int main(){
     try{
     Student s ; 
-    s.displaysub();}
+    s.displaysgpa();
+    }
     catch(int sem){
         cout << "No data available"<< endl ;
     }
