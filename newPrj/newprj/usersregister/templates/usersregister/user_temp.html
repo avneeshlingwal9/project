@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+
+{%block title%}
+Registeration Page
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'usersregister:registeration' %}" method="post">
+{{form}}
+{% csrf_token %}
+<button type="submit">Submit</button>
+
+</form>
+{% endblock %}

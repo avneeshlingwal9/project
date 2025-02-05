@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+
+{%block title %}
+    {{post.name}}
+{%endblock%}
+
+{% block content%}
+    <article>
+        <img src="{{ post.banner.url}}" alt="{{post.name}}">
+        <h1> {{post.name}}</h1>
+        
+        <h1> {{post.date}}</h1>
+    </article>
+
+{%endblock%}

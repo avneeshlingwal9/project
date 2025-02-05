@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{%block title %}
+    Posts
+{%endblock%}
+{%block content%}
+    {% for  post in posts  %}
+    <article>
+        
+        <a href="{% url 'posts:page' name=post.name %}">
+        <h1> {{post.name}}</h1>
+        </a>
+        <h1> {{post.date}}</h1>
+    </article>
+    
+    {% endfor %}
+{%endblock %}
