@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+background-color: #0000d3c9; 
+
+}
+
+.contains{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+
+    /* So, that the flex container takes up the full height of the body and the divs can be centered. */
+    
+
+}
+.loader{
+    display: flex; /* So, that inside divs are alligned to row - wise.*/
+
+}
+/* Using animations and delay animation.
+ */.loader .loading{
+    width: 30px;
+    height: 30px;
+    margin: 10px ; 
+    border-radius: 50px;
+    background-color: aliceblue;
+    animation-name: load;
+    animation-duration: .8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: normal;
+}
+.loader .loading.one{
+    animation-delay: 0.3s;
+}
+.loader .loading.two{
+    animation-delay: 0.4s;
+}
+.loader .loading.three{
+    animation-delay: 0.5s;
+}
+
+
+
+/* Keyframes hold what styles the element will have at certain times.
+ */
+ @keyframes load{
+    0% {
+        width: 30px;
+        height: 30px;
+    }
+
+    50% { 
+        width : 20px;
+        height : 20px;
+    }
+}

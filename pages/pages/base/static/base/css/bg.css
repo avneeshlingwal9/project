@@ -6,7 +6,7 @@
 }
 .hero{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     /* for background images */
     background-image: linear-gradient(rgba(23,4,5,0.3) , rgba(24,5,6,0.3));
     display: flex;
@@ -57,21 +57,25 @@
     /*  So, this is used to fix the position of the content. */
     bottom: 0; 
     z-index: -1; /*So, that it fades into the background*/
+    object-fit: cover; /* To center the video. */
 }
 
 /*
 Did not understood the below lines. 
+Aspect ratio implies width/height , so if it is greater than 16/9 or 1.78, implies screen is more wide, so take up full width and height is auto.
+
+So, bascially our video is in the center if aspect ratio is 16/9. 
 */
-@media (min-aspect-ratio: 16/9) {
+/* @media (min-aspect-ratio: 0.1) {
     .bg-video{
         width: 100%;
         height: auto;
     }
     
 }
-@media (max-aspect-ratio: 16/9){
+@media (max-aspect-ratio: 10){
     .bg-video{
         width: auto;
         height: 100%;
     }
-}
+} */
