@@ -4,13 +4,19 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+/* html{
+    height: 100%;
+}
+body{
+    height: 100%;
+} */
 .hero{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     /* for background images */
     background-image: linear-gradient(rgba(23,4,5,0.3) , rgba(24,5,6,0.3));
     display: flex;
-    padding: 0 5%;
+    padding: 0 5px;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -57,7 +63,8 @@
     /*  So, this is used to fix the position of the content. */
     bottom: 0; 
     z-index: -1; /*So, that it fades into the background*/
-    object-fit: cover; /* To center the video. */
+    /* object-fit : cover*/
+  /* To center the video. */
 }
 
 /*
@@ -66,16 +73,16 @@ Aspect ratio implies width/height , so if it is greater than 16/9 or 1.78, impli
 
 So, bascially our video is in the center if aspect ratio is 16/9. 
 */
-/* @media (min-aspect-ratio: 0.1) {
+ @media (min-aspect-ratio: 16/9) {
     .bg-video{
         width: 100%;
         height: auto;
     }
     
 }
-@media (max-aspect-ratio: 10){
+@media (max-aspect-ratio: 16/9){
     .bg-video{
         width: auto;
         height: 100%;
     }
-} */
+}  
