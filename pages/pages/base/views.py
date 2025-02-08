@@ -7,3 +7,5 @@ def loading_animation(request):
     return render(request, 'base/loading_animation.html')
 def scroll_bar(request):
     return render(request , 'base/scroll_bar.html')
+def image_transition(request):
+    return render(request , 'base/image_transition.html')
