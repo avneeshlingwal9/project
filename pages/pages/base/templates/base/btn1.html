@@ -1,0 +1,16 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'base/css/btn1.css' %}">
+    <title>Button 1</title>
+</head>
+<body>
+    <section class="container">
+        <a href={% url "btn2"%}> Hover</a>
+    </section>
+</body>
+</html>

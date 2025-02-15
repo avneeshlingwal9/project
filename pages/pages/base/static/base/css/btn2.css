@@ -1,0 +1,74 @@
+/* *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+a{
+    background-color: cadetblue;
+    text-decoration: none;
+    padding: 2rem 3rem;
+    position: relative;
+/*     transition: all 1s; */
+/* Not neccessary as transition is happening to children elements. */
+    text-transform: uppercase;
+
+}
+
+a::before{
+    content: "next";
+    position: absolute;
+    top : 0;
+    left : 0;
+    width: 100%;
+    height: 100%;
+    background-color: crimson;
+    color: antiquewhite;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: rotateX(270deg);
+/*     Making it dissapear by rotating 90 or 270deg along x-axis, from the three axes of x,y and z, but by doing 270deg, it had to rotate more, so will give the flipping animation.  */
+    transform-origin: top; /* Origin at the top of the y-axis. and other property is by default center,so transition starts from top-center.*/
+    transition: all 0.5s;
+
+}
+
+a::after{
+    content: "next";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: gold;
+    color:#21098a;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.5s;
+
+    transform: rotateX(270deg);
+    transform-origin: top;
+    transition-delay: 0.25s;
+    /* Delaying the transition of this element. */
+
+}
+
+a:hover::after,
+a:hover::before{
+    /*Bringing back to original position. */
+    transform: rotateX(0deg);
+}
+
